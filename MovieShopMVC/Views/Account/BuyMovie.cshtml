@@ -1,0 +1,17 @@
+﻿@model ApplicationCore.Models.MovieDetailsResponseModel
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <img src=" @Model.PosterUrl">
+        </div>
+        <div class="col">
+            <h2>@Model.Title</h2>
+            <p>Are you Sure to purchase this movie?</p>
+        </div>
+        <div class="col">
+            <a class="btn btn-primary" asp-controller="User" asp-action="ConfirmPurchase" asp-route-id="@Model.Id"> Yes </a>
+            <a class="btn btn-primary" asp-controller="Home" asp-action="Index"> No </a>
+        </div>
+    </div>
+</div>

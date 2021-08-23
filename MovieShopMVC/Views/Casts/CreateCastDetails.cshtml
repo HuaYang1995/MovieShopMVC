@@ -1,0 +1,57 @@
+﻿@model ApplicationCore.Models.CastResponseModel
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <img src=@Model.ProfilePath />
+        </div>
+        <div class="col">
+            <h1>  @Model.Name </h1>
+
+            @{
+                if (@Model.Gender == "1")
+                {
+                    <h1>Gender: F  </h1>
+                }
+                else
+                {
+                    <h1> Gender: M </h1>
+                }
+            }
+        </div>
+        <div class="col">
+
+        </div>
+    </div>
+</div>
+
+@*<div class="rounded">
+        <div class="container-fluid bg-light">
+            <div class="row">
+                @foreach (var c in Model.Characters)
+                {
+                    <div class="col-3">
+                       <p> @c</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>*@
+
+<h4>Filmography </h4>
+<div class="rounded">
+    <div class="container-fluid bg-light">
+        <div class="row">
+            @foreach (var movie in Model.Movies)
+            {
+                <div class="col-3">
+                    <h1>
+                        <a asp-controller="Movie" asp-action="Details" asp-route-id=@movie.Id>
+                            <img src=@movie.PosterUrl alt=@movie.Title>
+                        </a>
+                    </h1>
+                </div>
+            }
+        </div>
+    </div>
+</div>

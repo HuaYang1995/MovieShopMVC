@@ -1,0 +1,23 @@
+﻿@model ApplicationCore.Models.MovieDetailsResponseModel
+<div class="row justify-content-center bg-light">
+    <div class="col-3">
+        <h1>Add To The Favorite Movie</h1>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="row justify-content-center">
+            <img src=" @Model.PosterUrl">
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <h2>@Model.Title</h2>
+    </div>
+    <div class="row justify-content-center">
+        <a class="btn btn-dark" asp-controller="User" asp-route-id="@Model.Id"> Add </a>
+    </div>
+
+</div>
+

@@ -1,0 +1,122 @@
+﻿@model ApplicationCore.Models.MovieDetailsResponseModel
+@{
+    ViewBag.Title = "MovieDetails";
+}
+
+<div class="bg-image" style="background-image: url(@Model.BackdropUrl)">
+
+    <div class="row">
+        <div class="col-md-3 offset-2">
+
+            <!-- Movie Card row -->
+            <div>
+                <img src="@Model.PosterUrl" class="card-img-top" />
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="row mt-2">
+                <div class="col-12">
+                    <h1 class="text-white">
+                        @Model.Title
+                    </h1>
+                    <small class="text-muted"> @Model.Tagline </small>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-4 text-secondary font-weight-bold mt-2">
+                    @Model.RunTime m | @Model.ReleaseDate.Value.Date.Year
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4 mt-3">
+                    <h4>
+                        <span class="badge badge-warning text-lg-center">
+                            @Model.Rating
+                        </span>
+                    </h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-14 text-xs text-light ">
+                    @Model.Overview
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+
+            <button type="button" class="btn btn-light btn-lg btn-block btn-sm bg-transparent text-light" data-toggle="modal" data-target="#buyMovieModal">
+                REVIEW
+            </button>
+
+                    <button type="button" class="btn btn-light btn-lg btn-block btn-sm bg-transparent text-light" data-toggle="modal" data-target="#buyMovieModal">
+                        TRAILER
+                    </button>
+                    <button type="button" class="btn btn-light btn-lg btn-block btn-sm" data-toggle="modal" data-target="#buyMovieModal">
+                        BUY @Model.Price
+                    </button>
+
+                    <button type="button" class="btn btn-light btn-lg btn-block btn-sm">
+                        WATCH MOVIE
+                    </button>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3>MOVIE FACTS</h3>
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Release Date
+                    <span class="badge bg-dark rounded-pill text-white">@Model.ReleaseDate</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    RunTime
+                    <span class="badge bg-dark rounded-pill text-white">@Model.RunTime</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Box Office
+                    <span class="badge bg-dark rounded-pill text-white">@Model.Revenue</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Budget
+                    <span class="badge bg-dark rounded-pill text-white">@Model.Budget</span>
+                </li>
+            </ul>
+        </div>
+        <div class="col">
+            <h5>CAST</h5>
+
+            <table class="table">
+
+                <tbody>
+                    @foreach (var cast in Model.Casts)
+                    {
+                        <tr>
+                            <td>
+                                <img src="@cast.ProfilePath"
+                                     class=" img-fluid rounded-circle small"
+                                     alt="@cast.Name" />
+                            </td>
+                            <td> @cast.Name </td>
+                            <td> @cast.Character</td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
